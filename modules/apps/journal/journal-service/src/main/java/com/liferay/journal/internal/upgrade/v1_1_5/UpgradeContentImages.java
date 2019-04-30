@@ -95,6 +95,15 @@ public class UpgradeContentImages extends UpgradeProcess {
 				}
 
 				if (fileEntry == null) {
+					dynamicContentElement.clearContent();
+
+					String message = StringBundler.concat(
+						"Unable to get file entry with group ID ",
+						String.valueOf(groupId), ", and file name ", id,
+						" for resourcePrimKey ", String.valueOf(resourcePrimKey), " clear dynamic content");
+
+					_log.warn(message);
+
 					continue;
 				}
 
